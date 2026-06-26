@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Subhrangsu Mandal - Academic Homepage</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        academic: {
+                            50: '#f0f7ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#031a30',
+                        },
+                        accent: {
+                            gold: '#b45309',
+                            goldLight: '#fef3c7',
+                            teal: '#0f766e',
+                            tealLight: '#ccfbf1',
+                            crimson: '#9f1239',
+                            crimsonLight: '#ffe4e6',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons for clean structural symbols -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Academic serif and neutral sans-serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .serif-academic {
+            font-family: 'Lora', serif;
+        }
+        .serif-display {
+            font-family: 'Cinzel', serif;
+        }
+        /* Custom classical scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 2px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col antialiased">
+
+    <!-- Header Border Gradient reflecting classical university colors -->
+    <div class="h-1.5 w-full bg-gradient-to-r from-academic-800 via-accent-gold to-accent-teal"></div>
+
+    <!-- Classical Top Header with colored brand elements -->
+    <header class="w-full border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-6 py-6 lg:px-12 transition-colors">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight text-academic-900 dark:text-academic-100 serif-academic">Dr. Subhrangsu Mandal</h1>
+                <p class="text-sm text-slate-700 dark:text-slate-300 mt-1 font-medium">
+                    Assistant Professor, Department of Computer Science and Engineering
+                </p>
+                <p class="text-xs text-academic-700 dark:text-academic-400 font-semibold mt-0.5 flex items-center gap-1.5">
+                    <i class="fa-solid fa-graduation-cap text-accent-gold"></i>
+                    <span>Indian Institute of Technology (ISM) Dhanbad</span>
+                </p>
+            </div>
+            
+            <div class="flex items-center space-x-3 self-end md:self-auto">
+                <!-- Theme toggle -->
+                <button id="themeToggle" class="p-2 text-slate-600 dark:text-slate-300 hover:text-academic-800 dark:hover:text-white transition text-xs uppercase tracking-widest flex items-center gap-2 border border-slate-200 dark:border-slate-700 rounded px-3 bg-slate-50 dark:bg-slate-800" aria-label="Toggle Theme">
+                    <span class="dark:hidden">Dark Mode</span>
+                    <span class="hidden dark:inline">Light Mode</span>
+                    <i class="fa-solid fa-circle-half-stroke text-sm text-academic-600"></i>
+                </button>
+                
+                <!-- Mobile navigation toggler -->
+                <button id="menuToggle" class="p-2 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 lg:hidden rounded flex items-center justify-center bg-slate-50 dark:bg-slate-800" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars text-academic-700"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex-1 flex flex-col lg:flex-row max-w-6xl mx-auto w-full px-6 lg:px-12 py-12 gap-12">
+        
+        <!-- Sidebar: Classic structured CV Info block -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 lg:static lg:block z-50 w-72 bg-white dark:bg-slate-900 lg:bg-transparent p-8 lg:p-0 transition-transform duration-300 ease-in-out border-r border-slate-200 dark:border-slate-800 lg:border-0 overflow-y-auto shrink-0">
+            
+            <!-- Close mobile menu overlay -->
+            <div class="lg:hidden flex justify-end mb-6">
+                <button id="closeMenu" class="text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white flex items-center gap-1 text-xs tracking-widest uppercase">
+                    <span>Close</span> <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Academic Portrait Frame with elegant dummy image and robust fallback -->
+                <div class="space-y-2">
+                    <div class="aspect-[4/5] w-full max-w-[220px] mx-auto bg-gradient-to-br from-academic-50 to-slate-200 dark:from-slate-900 dark:to-academic-950 border-2 border-academic-100 dark:border-academic-900 rounded-lg overflow-hidden shadow-sm transition-colors relative group">
+                        <!-- Actual Portrait Image -->
+                        <img id="facultyPortrait" 
+                             src="1603.jpg" 
+                             alt="Dr. Subhrangsu Mandal Portrait" 
+                             class="w-full h-full object-cover relative z-10 transition-transform duration-500 group-hover:scale-105"
+                             onerror="this.style.display='none'; document.getElementById('portraitFallback').classList.remove('hidden');" />
+                        
+                        <!-- Premium Fallback if image fails to load -->
+                        <div id="portraitFallback" class="absolute inset-0 hidden flex flex-col items-center justify-center p-4 text-slate-400 dark:text-slate-600">
+                            <div class="absolute inset-0 bg-academic-700/5 dark:bg-academic-400/5 rounded-lg"></div>
+                            <i class="fa-solid fa-user-tie text-5xl mb-3 text-academic-700 dark:text-academic-400 opacity-80"></i>
+                            <span class="text-[10px] tracking-widest uppercase font-bold text-academic-800 dark:text-academic-300 text-center relative z-10">Faculty Portrait</span>
+                            <span class="text-[9px] text-slate-500 dark:text-slate-500 mt-1 italic relative z-10">[ 4:5 aspect ratio ]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic Credentials Details Block -->
+                <div class="space-y-4">
+                    <h3 class="text-xs font-bold tracking-widest uppercase text-academic-700 dark:text-academic-400 border-b-2 border-academic-100 dark:border-slate-800 pb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-envelope-open-text text-accent-gold"></i>
+                        <span>Academic Office</span>
+                    </h3>
+                    <div class="text-xs space-y-3 text-slate-700 dark:text-slate-300 leading-relaxed">
+                        <p>
+                            <strong class="text-academic-900 dark:text-academic-100 block font-semibold">Address:</strong>
+                            Department of Computer Science &amp; Engineering<br>
+                            Indian Institute of Technology (ISM) Dhanbad<br>
+                            Dhanbad, Jharkhand, India - 826004
+                        </p>
+                        <p>
+                            Email: <a class="underline hover:text-academic-700 dark:hover:text-academic-400 text-academic-800 dark:text-academic-300 font-medium">santu[dot]cst[at]gmail[dot]com <br> subhrangsu[at]iitism[dot]ac[dot]in </a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Structured CV Navigation Links with indicator accents -->
+                <div class="space-y-2">
+                    <nav class="space-y-1 text-sm font-medium">
+                        <a href="#about" class="nav-link block py-2 transition flex items-center space-x-2 rounded-r px-2">
+                            <span>Research Interests</span>
+                        </a>
+                        <a href="#experience" class="nav-link block py-2 transition flex items-center space-x-2 rounded-r px-2">
+                            <span>Professional Experience</span>
+                        </a>
+                        <a href="#publications" class="nav-link block py-2 transition flex items-center space-x-2 rounded-r px-2">
+                            <span>Publications</span>
+                        </a>
+                        <a href="#projects" class="nav-link block py-2 transition flex items-center space-x-2 rounded-r px-2">
+                            <span>Sponsored Projects</span>
+                        </a>
+                        <a href="#teaching" class="nav-link block py-2 transition flex items-center space-x-2 rounded-r px-2">
+                            <span>Teaching</span>
+                        </a>
+                        <a href="#advising" class="nav-link block py-2 transition flex items-center space-x-2 rounded-r px-2">
+                            <span>Student Advising</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Structured Academic Record Column -->
+        <main class="flex-1 min-w-0">
+
+            <!-- Page 1: Welcome & Research Interests -->
+            <section id="about" class="page-view space-y-8 hidden">
+          <div class="bg-gradient-to-r from-academic-50/50 to-white dark:from-slate-900/30 dark:to-slate-900 border-l-4 border-academic-700 p-6 rounded-r-lg space-y-4 shadow-sm">
+              <h2 class="text-xl font-bold text-academic-900 dark:text-academic-200 serif-academic flex items-center gap-2">
+               <span class="text-accent-gold text-2xl">“</span>Welcome<span class="text-accent-gold text-2xl">”</span>
+               </h2>
+                  <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
+                     Welcome to my academic homepage. I am an Assistant Professor in the Department of Computer Science and Engineering at the <strong> Indian Institute of Technology (ISM) Dhanbad. </strong>
+                  </p>
+                  <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
+                    I completed my Ph.D. from the <strong>Indian Institute of Technology Kharagpur</strong> in 2021 under the supervision of <span class="font-medium text-academic-900 dark:text-academic-300">Prof. Arobinda Gupta</span>. Prior to my doctoral study, I received my M.Tech. degree from the <strong>Indian Institute of Technology Guwahati</strong> and my B.E. degree from <strong>Bengal Engineering and Science University, Shibpur</strong> (currently known as IIEST, Shibpur). 
+                 </p>
+                 <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
+        In addition to my academic career, I have work experience in the software industry. My research interest lies around the design and analysis of algorithms with an emphasis on temporal graphs. 
+                 </p>
+          </div>
+
+                <!-- Research Interests Section with Colored Theme Blocks -->
+                <div class="space-y-4">
+                    <h2 class="text-lg font-semibold tracking-widest text-slate-900 dark:text-white uppercase border-b-2 border-slate-300 dark:border-slate-800 pb-2 serif-academic flex items-center gap-2">
+                        Research Interests
+                    </h2>
+                    <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed serif-academic italic">
+                        My research interests are in designing efficient centralised and distributed algorithms to address fundamental problems on dynamic computational systems. In particular, we address different fundamental graph problems on graphs with dynamic topology.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                        <!-- Card 1: Teal Accent -->
+                        <div class="p-4 border-t-4 border-accent-teal border-x border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#1a1a17]/40 rounded-b-md shadow-sm">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-accent-teal dark:text-teal-400">Temporal Graphs</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1.5 leading-relaxed">Design of efficient algorithms to construct different graph structures on temporal graphs.</p>
+                        </div>
+                        <!-- Card 2: Indigo Accent -->
+                        <div class="p-4 border-t-4 border-academic-600 border-x border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#1a1a17]/40 rounded-b-md shadow-sm">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-academic-700 dark:text-academic-400">Distributed Algorithms</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1.5 leading-relaxed">Design of efficient algorithms to address fundamental problems using autonomous mobile robots.</p>
+                        </div>
+                        <!-- Card 3: Gold Accent -->
+                        <div class="p-4 border-t-4 border-accent-gold border-x border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#1a1a17]/40 rounded-b-md shadow-sm">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-accent-gold dark:text-amber-400">Heterogeneous Information Networks</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1.5 leading-relaxed">Design of efficient algorithms to extract information from information ecosystems modelled using HIN.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page 2: Professional Experience -->
+            <section id="experience" class="page-view space-y-6 hidden">
+                <h2 class="text-lg font-semibold tracking-widest text-slate-900 dark:text-white uppercase border-b-2 border-slate-300 dark:border-slate-800 pb-2 serif-academic flex items-center gap-2">
+                    Professional Experience
+                </h2>
+                
+                <div class="space-y-6">
+                    <!-- Position 1 -->
+                    <div class="flex flex-col md:flex-row md:items-start justify-between gap-1 p-4 rounded-lg bg-white dark:bg-[#1a1a17]/40 border-l-4 border-academic-700 border-y border-r border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div class="text-sm">
+                            <span class="font-bold text-slate-900 dark:text-white block text-base">Indian Institute of Technology (ISM) Dhanbad</span>
+                            <span class="text-academic-700 dark:text-academic-400 italic">Assistant Professor, Department of Computer Science and Engineering</span>
+                        </div>
+                        <span class="text-xs font-semibold text-accent-gold dark:text-amber-400 bg-amber-50 dark:bg-amber-950/30 px-2.5 py-1 rounded border border-amber-200/50 dark:border-amber-900/50 whitespace-nowrap self-start">Jan 2024 – Present</span>
+                    </div>
+
+                    <!-- Position 2 -->
+                    <div class="flex flex-col md:flex-row md:items-start justify-between gap-1 p-4 rounded-lg bg-white dark:bg-[#1a1a17]/40 border-l-4 border-slate-400 dark:border-slate-600 border-y border-r border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div class="text-sm">
+                            <span class="font-bold text-slate-900 dark:text-white block text-base">Indian Institute of Technology Indore</span>
+                            <span class="text-slate-600 dark:text-slate-400 italic">Assistant Professor, Department of Computer Science and Engineering</span>
+                        </div>
+                        <span class="text-xs font-medium text-slate-500 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded whitespace-nowrap self-start">Aug 2022 – Dec 2023</span>
+                    </div>
+
+                    <!-- Position 3 -->
+                    <div class="flex flex-col md:flex-row md:items-start justify-between gap-1 p-4 rounded-lg bg-white dark:bg-[#1a1a17]/40 border-l-4 border-slate-400 dark:border-slate-600 border-y border-r border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div class="text-sm">
+                            <span class="font-bold text-slate-900 dark:text-white block text-base">Indian Institute of Information Technology Guwahati</span>
+                            <span class="text-slate-600 dark:text-slate-400 italic">Assistant Professor, Department of Computer Science and Engineering</span>
+                        </div>
+                        <span class="text-xs font-medium text-slate-500 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded whitespace-nowrap self-start">Jan 2022 – July 2022</span>
+                    </div>
+
+                    <!-- Position 4 -->
+                    <div class="flex flex-col md:flex-row md:items-start justify-between gap-1 p-4 rounded-lg bg-white dark:bg-[#1a1a17]/40 border-l-4 border-slate-400 dark:border-slate-600 border-y border-r border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div class="text-sm">
+                            <span class="font-bold text-slate-900 dark:text-white block text-base">Citrix R&amp;D India Pvt. Ltd.</span>
+                            <span class="text-slate-600 dark:text-slate-400 italic">Software Engineer 2</span>
+                        </div>
+                        <span class="text-xs font-medium text-slate-500 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded whitespace-nowrap self-start">July 2012 – Jan 2014</span>
+                    </div>
+
+                    <!-- Position 5 -->
+                    <div class="flex flex-col md:flex-row md:items-start justify-between gap-1 p-4 rounded-lg bg-white dark:bg-[#1a1a17]/40 border-l-4 border-slate-400 dark:border-slate-600 border-y border-r border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div class="text-sm">
+                            <span class="font-bold text-slate-900 dark:text-white block text-base">IBM India Pvt. Ltd.</span>
+                            <span class="text-slate-600 dark:text-slate-400 italic">Associate System Engineer</span>
+                        </div>
+                        <span class="text-xs font-medium text-slate-500 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded whitespace-nowrap self-start">July 2009 – Aug 2010</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page 3: Publications -->
+            <section id="publications" class="page-view space-y-6 hidden">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b-2 border-slate-300 dark:border-slate-800 pb-2">
+                    <h2 class="text-lg font-semibold tracking-widest text-slate-900 dark:text-white uppercase serif-academic flex items-center gap-2">
+                        Publications
+                    </h2>
+                    
+                    <!-- Search input -->
+                    <div class="relative text-xs w-full lg:w-64">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-2.5 text-academic-600">
+                            <i class="fa-solid fa-search"></i>
+                        </span>
+                        <input id="pubSearch" type="text" placeholder="Filter by author, title, venue..." class="w-full pl-8 pr-2.5 py-1.5 bg-white dark:bg-[#1a1a17] text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded focus:outline-none focus:border-academic-500 shadow-sm">
+                    </div>
+                </div>
+
+                <!-- Custom academic controls for filtering -->
+                <div class="flex flex-wrap gap-4 text-xs font-medium text-slate-500 border-b border-slate-200 dark:border-slate-800 pb-1.5">
+                    <button id="tab-all" onclick="filterPublications('all')" class="pub-tab border-b-2 border-slate-800 text-slate-900 dark:border-slate-100 dark:text-white pb-1 font-semibold transition">
+                        [Show All]
+                    </button>
+                    <button id="tab-journal" onclick="filterPublications('journal')" class="pub-tab border-b-2 border-transparent pb-1 hover:text-academic-700 dark:hover:text-academic-300 transition flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-accent-teal"></span>
+                        <span>Journals</span>
+                    </button>
+                    <button id="tab-conference" onclick="filterPublications('conference')" class="pub-tab border-b-2 border-transparent pb-1 hover:text-academic-700 dark:hover:text-academic-300 transition flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-academic-500"></span>
+                        <span>Conferences</span>
+                    </button>
+                </div>
+
+                <ol id="pubsList" class="space-y-6 text-sm list-decimal pl-5 marker:text-academic-600 dark:marker:text-academic-400 leading-relaxed">
+                    <!-- Dynamic rendering outputs standard text citations -->
+                </ol>
+
+                <!-- External Indices & Academic Profiling Links -->
+                <div class="pt-6 mt-8 border-t border-slate-200 dark:border-slate-800">
+                    <div class="flex flex-wrap items-center gap-4 text-xs font-semibold tracking-wider uppercase text-slate-400 dark:text-slate-500 mb-3">
+                        <i class="fa-solid fa-network-wired text-accent-gold"></i>
+                        <span>External Academic Repositories &amp; Profiles</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <!-- Google Scholar Profile Link Button -->
+                        <a href="https://scholar.google.com/citations?user=4Uc5kc0AAAAJ" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-4 py-2.5 rounded bg-white dark:bg-[#1a1a17]/40 border border-slate-200 dark:border-slate-800 hover:border-academic-500 dark:hover:border-academic-500 group shadow-sm transition">
+                            <div class="w-7 h-7 rounded bg-gradient-to-br from-academic-500 to-academic-700 text-white flex items-center justify-center shadow-xs">
+                                <i class="fa-solid fa-graduation-cap text-sm"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block group-hover:text-academic-600 dark:group-hover:text-academic-400 transition">Google Scholar</span>
+                                <span class="text-[10px] text-slate-400 dark:text-slate-500 normal-case font-mono mt-0.5 block">Full Citation Indexing &amp; Metrics</span>
+                            </div>
+                        </a>
+                        <!-- DBLP Bibliography Server Link Button -->
+                        <a href="https://dblp.org/pid/118/7137.html" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-4 py-2.5 rounded bg-white dark:bg-[#1a1a17]/40 border border-slate-200 dark:border-slate-800 hover:border-accent-teal dark:hover:border-accent-teal group shadow-sm transition">
+                            <div class="w-7 h-7 rounded bg-gradient-to-br from-accent-teal to-teal-900 text-white flex items-center justify-center shadow-xs">
+                                <i class="fa-solid fa-book-open text-xs"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block group-hover:text-accent-teal dark:group-hover:text-teal-400 transition">DBLP Bibliography</span>
+                                <span class="text-[10px] text-slate-400 dark:text-slate-500 normal-case font-mono mt-0.5 block">Computer Science Bibliography Record</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page 4: Sponsored Projects -->
+            <section id="projects" class="page-view space-y-6 hidden">
+                <h2 class="text-lg font-semibold tracking-widest text-slate-900 dark:text-white uppercase border-b-2 border-slate-300 dark:border-slate-800 pb-2 serif-academic flex items-center gap-2">
+                    Sponsored Projects
+                </h2>
+
+                <div class="p-6 border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-white to-slate-50 dark:from-[#111] dark:to-slate-900 rounded-lg shadow-sm space-y-4 relative overflow-hidden">
+                    <div class="absolute right-0 top-0 h-full w-2 bg-gradient-to-b from-academic-600 to-accent-teal"></div>
+                    
+                    <div class="flex flex-wrap justify-between items-center text-xs font-bold uppercase tracking-wider">
+                        <span class="text-academic-800 dark:text-academic-300">Research Grant Scheme (FRS)</span>
+                        <span class="text-emerald-700 dark:text-emerald-400 font-semibold bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-100 dark:border-emerald-900/50">[ Ongoing | 2024 – 2026 ]</span>
+                    </div>
+                    
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-tight serif-academic">
+                        "Cut Nodes and Top k-Shortest Paths on Temporal Graphs and Their Applications in Delay Tolerant Networks"
+                    </h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 italic font-mono">Project Reference: MISC0100</p>
+                    
+                    <div class="border-t border-slate-200 dark:border-slate-800 pt-3 grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                        <p class="text-slate-600 dark:text-slate-400">
+                            <strong class="text-slate-800 dark:text-slate-200">Principal Investigator:</strong> Dr. Subhrangsu Mandal
+                        </p>
+                        <p class="text-slate-600 dark:text-slate-400">
+                            <strong class="text-slate-800 dark:text-slate-200">Sponsoring Agency:</strong> Indian Institute of Technology (ISM) Dhanbad
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page 5: Teaching Portfolio -->
+            <section id="teaching" class="page-view space-y-8 hidden">
+                <h2 class="text-lg font-semibold tracking-widest text-slate-900 dark:text-white uppercase border-b-2 border-slate-300 dark:border-slate-800 pb-2 serif-academic flex items-center gap-2">
+                    Teaching
+                </h2>
+
+                <!-- Current Courses Section -->
+                <div class="space-y-4">
+                    <h3 class="text-sm font-semibold tracking-wider text-slate-900 dark:text-white uppercase border-b-2 border-academic-100 dark:border-slate-800 pb-1.5 serif-academic italic flex items-center gap-2">
+                        <i class="fa-solid fa-hourglass-start text-accent-gold"></i>
+                        <span>Current Courses</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                        <!-- Theory nested -->
+                        <div class="space-y-2 p-4 rounded-lg bg-white dark:bg-[#1a1a17]/20 border border-slate-200 dark:border-slate-800">
+                            <h4 class="font-bold text-slate-900 dark:text-white text-xs uppercase tracking-widest text-academic-800 dark:text-academic-400 pb-1 border-b border-slate-100 dark:border-slate-800 flex items-center gap-1.5">
+                                <i class="fa-solid fa-book text-slate-400"></i>
+                                <span>Theory Courses</span>
+                            </h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 italic">No lecturing schedules assigned for the active term.</p>
+                        </div>
+                        <!-- Lab nested -->
+                        <div class="space-y-2 p-4 rounded-lg bg-white dark:bg-[#1a1a17]/20 border border-slate-200 dark:border-slate-800">
+                            <h4 class="font-bold text-slate-900 dark:text-white text-xs uppercase tracking-widest text-academic-800 dark:text-academic-400 pb-1 border-b border-slate-100 dark:border-slate-800 flex items-center gap-1.5">
+                                <i class="fa-solid fa-microscope text-slate-400"></i>
+                                <span>Lab Courses</span>
+                            </h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 italic">No practical laboratory supervisions assigned for the active term.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Previous Courses Section -->
+                <div class="space-y-4 pt-4">
+                    <h3 class="text-sm font-semibold tracking-wider text-slate-900 dark:text-white uppercase border-b-2 border-academic-100 dark:border-slate-800 pb-1.5 serif-academic italic flex items-center gap-2">
+                        <i class="fa-solid fa-clock-rotate-left text-accent-teal"></i>
+                        <span>Previous Courses</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+                        <!-- Theory nested -->
+                        <div class="space-y-3 p-5 rounded-lg bg-white dark:bg-[#1a1a17]/20 border-t-2 border-academic-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-sm">
+                            <h4 class="font-bold text-slate-900 dark:text-white text-xs uppercase tracking-widest text-academic-800 dark:text-academic-300 pb-1.5 border-b border-slate-100 dark:border-slate-800">
+                                Theory Courses
+                            </h4>
+                            <ul class="space-y-2 text-slate-700 dark:text-slate-300 list-disc pl-4 marker:text-academic-600">
+                                <li>Advanced Algorithms</li>
+                                <li>Algorithm Design and Analysis</li>
+                                <li>Data Structures</li>
+                                <li>Graph Theory</li>
+                                <li>Computer Programming</li>
+                            </ul>
+                        </div>
+
+                        <!-- Lab nested -->
+                        <div class="space-y-3 p-5 rounded-lg bg-white dark:bg-[#1a1a17]/20 border-t-2 border-accent-teal border-x border-b border-slate-200 dark:border-slate-800 shadow-sm">
+                            <h4 class="font-bold text-slate-900 dark:text-white text-xs uppercase tracking-widest text-accent-teal dark:text-teal-400 pb-1.5 border-b border-slate-100 dark:border-slate-800">
+                                Lab Courses
+                            </h4>
+                            <ul class="space-y-2 text-slate-700 dark:text-slate-300 list-disc pl-4 marker:text-accent-teal">
+                                <li>Data Structures Lab</li>
+                                <li>Computer Programming Lab</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page 6: Student Advising -->
+            <section id="advising" class="page-view space-y-8 hidden">
+                <h2 class="text-lg font-semibold tracking-widest text-slate-900 dark:text-white uppercase border-b-2 border-slate-300 dark:border-slate-800 pb-2 serif-academic flex items-center gap-2">
+                    Student Advising
+                </h2>
+
+                <div class="flex flex-col gap-8">
+                    <!-- Doctoral Students Section -->
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-xs uppercase tracking-widest text-academic-800 dark:text-academic-400 border-b border-slate-200 dark:border-slate-800 pb-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-user-graduate text-accent-gold"></i>
+                            <span>Doctoral Students</span>
+                        </h3>
+                        
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-accent-gold dark:text-amber-400 mb-1">Ongoing</h4>
+                                <ul class="text-sm font-semibold text-slate-900 dark:text-white space-y-1 list-disc pl-4 marker:text-accent-gold">
+                                    <li>Rinku Kumar (Co-Supervisor) (Supervisor: Dr. Bodhisatwa Mazumdar, IIT Indore)</li>
+                                    <li>Reena Tirkey</li>
+                                    <li>Ishani Das (Part-time) (Jointly with Dr. Tuli Bakshi, Future Institute of Technology) </li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1">Completed</h4>
+                                <ul class="text-xs text-slate-500 italic space-y-1 pl-1">
+                                    <li>None</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Masters Students Section -->
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-xs uppercase tracking-widest text-academic-800 dark:text-academic-400 border-b border-slate-200 dark:border-slate-800 pb-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-graduation-cap text-academic-600"></i>
+                            <span>Masters Students</span>
+                        </h3>
+                        
+                        <div class="space-y-3">                            
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1">Ongoing</h4>
+                                <ul class="text-sm font-semibold text-slate-900 dark:text-white space-y-1 list-disc pl-4 marker:text-academic-600">
+                                    <li>Sayantan Das</li>
+                                    <li>Bishal Roy</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-academic-700 dark:text-academic-400 mb-1">Completed</h4>
+                                <ul class="text-sm font-semibold text-slate-900 dark:text-white space-y-1 list-disc pl-4 marker:text-academic-600">
+                                    <li>Aarti Sabat</li>
+                                    <li>Pratham Savane</li>
+                                    <li>Kaushan Dey</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bachelor Students Section -->
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-xs uppercase tracking-widest text-academic-800 dark:text-academic-400 border-b border-slate-200 dark:border-slate-800 pb-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-user text-accent-teal"></i>
+                            <span>Bachelors Students</span>
+                        </h3>
+                        
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1">Ongoing</h4>
+                                <ul class="text-sm font-semibold text-slate-900 dark:text-white space-y-1 list-disc pl-4 marker:text-accent-teal">
+                                    <li>None</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-accent-teal dark:text-teal-400 mb-1">Completed</h4>
+                                <ul class="text-sm font-semibold text-slate-900 dark:text-white space-y-1 list-disc pl-4 marker:text-accent-teal">
+                                    <li>Saksham Yadav (IIIT Guwahati)</li>
+                                    <li>Harsh Verma (IIT Indore)</li>
+                                    <li>Priyanshu Sharma</li>
+                                    <li>Siddhartha Gaur</li>
+                                    <li>Sai Anvith Bommisetty</li>
+                                    <li>Anil Budamakuntla</li>
+                                    <li>Aman Ayush</li>
+				    <li>Vishesh Pandey</li>
+				    <li>Manakan Aditya</li>
+                                    <li>Veeramalla Abhiram</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Classical Footer -->
+    <footer class="mt-auto border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-950">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-2">
+            <p class="serif-academic italic font-medium">Dr. Subhrangsu Mandal — Assistant Professor of CSE</p>
+            <p class="text-slate-500 dark:text-slate-500 font-medium">Archival Digital Record. Updated June 2026.</p>
+        </div>
+    </footer>
+
+    <!-- Scripting for application behavior -->
+    <script>
+        const publications = [
+            {
+                type: 'journal',
+                authors: 'Ajaharul Hoque, Subhrangsu Mandal, Debaditya Barman, Paramartha Dutta',
+                title: 'Clustering Guided Dense Context Sensitive Structure Extractor: A Relaxation Induced Approach',
+                venue: 'Information Sciences',
+                publisher: 'Elsevier',
+                details: '(ACCEPTED)'
+            },
+            {
+                type: 'journal',
+                authors: 'Ashish Saxena, Barun Gorain, Subhrangsu Mandal, Kaushik Mondal',
+                title: 'Pebble Guided Rendezvous Despite Fault',
+                venue: 'Theoretical Computer Science',
+                publisher: 'Elsevier',
+                details: 'Volume 1081, Pages 116073, 2026'
+            },
+            {
+                type: 'journal',
+                authors: 'Ajaharul Hoque, Subhrangsu Mandal, Debaditya Barman, Paramartha Dutta',
+                title: 'Faster Context-Sensitive Dense Structure Extraction in Heterogeneous Information Networks',
+                venue: 'Journal of Complex Networks',
+                publisher: 'Oxford University Press',
+                details: 'Volume 14, Issue 2, Pages cnag002, 2026'
+            },
+            {
+                type: 'journal',
+                authors: 'Saksham Yadav, Priyanshu Sharma, Siddhartha Gaur, Srinibas Swain, Subhrangsu Mandal',
+                title: 'Finding a Minimum Source Set in Temporal Graphs',
+                venue: 'Theoretical Computer Science',
+                publisher: 'Elsevier',
+                details: 'Volume 1060, Pages 115624, 2026'
+            },
+            {
+                type: 'journal',
+                authors: 'Subhrangsu Mandal, Anisur Rahaman Molla, William K. Moses Jr.',
+                title: 'Efficient Live Exploration of a Dynamic Ring with Mobile Robots',
+                venue: 'Theoretical Computer Science',
+                publisher: 'Elsevier',
+                details: 'Volume 980, Pages 114201, 2023'
+            },
+            {
+                type: 'journal',
+                authors: 'Subhrangsu Mandal, Arobinda Gupta',
+                title: 'Maximum 0-1 Timed Matching on Temporal Graphs',
+                venue: 'Discrete Applied Mathematics',
+                publisher: 'Elsevier',
+                details: 'Volume 319, Pages 310-326, 2022'
+            },
+            {
+                type: 'journal',
+                authors: 'Subhrangsu Mandal, Arobinda Gupta',
+                title: 'Convergecast Tree on Temporal Graphs',
+                venue: 'International Journal of Foundations of Computer Science',
+                publisher: 'World Scientific',
+                details: 'Volume 31, Issue 3, Pages 385-409, 2020'
+            },
+            {
+                type: 'journal',
+                authors: 'Subhrangsu Mandal, Sandip Chakraborty, Sushanta Karmakar',
+                title: 'Distributed Deterministic 1-2 Skip List for Peer-to-Peer System',
+                venue: 'Peer-to-Peer Networking and Applications',
+                publisher: 'Springer',
+                details: 'Volume 8, Issue 1, Pages 63-86, 2015'
+            },
+            {
+                type: 'conference',
+                authors: 'Rinku Kumar, Bodhisatwa Mazumdar, Subhrangsu Mandal',
+                title: 'On Fixed-Parameter Tractability of Weighted 0-1 Timed Matching Problem on Temporal Graphs',
+                venue: '22nd International Conference on Distributed Computing and Internet Technology (ICDCIT)',
+                details: 'Pages 19-31, January 16-19, 2026, Bhubaneswar, India'
+            },
+            {
+                type: 'conference',
+                authors: 'Barun Gorain, Subhrangsu Mandal, Yash Sharma',
+                title: 'Collaborative Dispersion of Silent Robots with Different Wake-Up Time',
+                venue: '22nd International Conference on Distributed Computing and Internet Technology (ICDCIT)',
+                details: 'Pages 52-67, January 16-19, 2026, Bhubaneswar, India'
+            },
+            {
+                type: 'conference',
+                authors: 'Saksham Yadav, Srinibas Swain, Subhrangsu Mandal',
+                title: 'Source Sets in Temporal Graphs',
+                venue: '21st International Conference on Distributed Computing and Internet Technology (ICDCIT)',
+                details: 'Pages 162-178, January 8-11, 2025, Bhubaneswar, India'
+            },
+            {
+                type: 'conference',
+                authors: 'Ajaharul Hoque, Subhrangsu Mandal, Paramartha Dutta, Debaditya Barman',
+                title: 'Context-Sensitive Dense Structure Extraction in Hybrid Heterogeneous Information Networks',
+                venue: '16th Annual Meeting of the Forum for Information Retrieval Evaluation (FIRE)',
+                details: '2024'
+            },
+            {
+                type: 'conference',
+                authors: 'Ashish Saxena, Barun Gorain, Subhrangsu Mandal, Kaushik Mondal',
+                title: 'Brief Announcement: Pebble Guided Rendezvous Despite Fault',
+                venue: '26th International Symposium on Stabilization, Safety, and Security of Distributed Systems (SSS)',
+                details: 'Pages 121-125, October 20-22, 2024, Nagoya, Japan'
+            },
+            {
+                type: 'conference',
+                authors: 'Ajaharul Hoque, Debaditya Barman, Paramartha Dutta, Subhrangsu Mandal',
+                title: 'A Study on the Effect of 2-Approximate Shortest-Path Integration in Extracting Context-Sensitive Dense Structures',
+                venue: '15th Annual Meeting of the Forum for Information Retrieval Evaluation (FIRE)',
+                details: 'Pages 105-108, December 15-18, 2023, Panjim, India'
+            },
+            {
+                type: 'conference',
+                authors: 'Subhrangsu Mandal, Anisur Rahaman Molla, William K. Moses Jr.',
+                title: 'Live Exploration with Mobile Robots in a Dynamic Ring, Revisited',
+                venue: '16th International Symposium on Algorithms and Experiments for Wireless Sensor Networks (ALGOSENSORS)',
+                details: 'Pages 92-107, September 9-10, 2020, Pisa, Italy'
+            },
+            {
+                type: 'conference',
+                authors: 'Subhrangsu Mandal, Arobinda Gupta',
+                title: '0-1 Timed Matching in Bipartite Temporal Graphs',
+                venue: '6th International Conference on Algorithms and Discrete Applied Mathematics (CALDAM)',
+                details: 'Pages 331-346, February 13-15, 2020, Hyderabad, India'
+            },
+            {
+                type: 'conference',
+                authors: 'Subhrangsu Mandal, Arobinda Gupta',
+                title: 'Approximation Algorithms for Permanent Dominating Set Problem on Dynamic Networks',
+                venue: '14th International Conference on Distributed Computing and Internet Technology (ICDCIT)',
+                details: 'Pages 265-279, January 11-13, 2018, Bhubaneswar, India'
+            },
+            {
+                type: 'conference',
+                authors: 'Subhrangsu Mandal, Arobinda Gupta',
+                title: 'Permanent Dominating Set on Dynamic Graphs',
+                venue: '8th International Conference on Communication Systems and Networks (COMSNETS)',
+                details: 'Pages 1-2, January 5-10, 2016, Bangalore, India'
+            },
+            {
+                type: 'conference',
+                authors: 'Subhrangsu Mandal, Sandip Chakraborty, Sushanta Karmakar',
+                title: 'Deterministic 1-2 Skip List in Distributed System',
+                venue: '2nd IEEE International Conference on Parallel, Distributed and Grid Computing (IEEE PDGC)',
+                details: 'Pages 296-301, 06-08 December 2012, Solan, India (2nd Best Paper Award)'
+            },
+            {
+                type: 'conference',
+                authors: 'Soumyadeep G. Dastidar, Subhrangsu Mandal, Ferdous A. Barbhuiya, Sukumar Nandi',
+                title: 'Detecting Metamorphic Virus Using Hidden Markov Model and Genetic Algorithm',
+                venue: '2nd International Conference on Soft Computing for Problem Solving (SocProS)',
+                details: 'Pages 305-315, 20-22 December, 2011, Roorkee, India (Best Paper Award)'
+            }
+        ];
+
+        let currentTab = 'all';
+
+        function navigateToPage(pageId) {
+            document.querySelectorAll('.page-view').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            const targetSection = document.getElementById(pageId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const linkHref = link.getAttribute('href').substring(1);
+                if (linkHref === pageId) {
+                    link.className = 'nav-link block py-2 text-academic-900 dark:text-academic-200 font-bold border-l-4 border-accent-gold pl-3 bg-academic-50 dark:bg-slate-900 transition flex items-center space-x-2 rounded-r shadow-sm';
+                } else {
+                    link.className = 'nav-link block py-2 text-slate-600 dark:text-slate-400 hover:text-academic-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900 transition flex items-center space-x-2 rounded-r px-2';
+                }
+            });
+
+            const mainCol = document.querySelector('main');
+            if (mainCol) {
+                mainCol.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function renderPublications() {
+            const listContainer = document.getElementById('pubsList');
+            const searchQuery = document.getElementById('pubSearch').value.toLowerCase();
+            
+            listContainer.innerHTML = '';
+            
+            const filtered = publications.filter(pub => {
+                const matchesType = currentTab === 'all' || pub.type === currentTab;
+                const matchesSearch = pub.title.toLowerCase().includes(searchQuery) || 
+                                      pub.authors.toLowerCase().includes(searchQuery) ||
+                                      pub.venue.toLowerCase().includes(searchQuery);
+                return matchesType && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                listContainer.innerHTML = `
+                    <div class="py-6 text-slate-400 dark:text-slate-500 italic text-sm">
+                        No matches found for the queried criteria.
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach((pub) => {
+                const authorFormatted = pub.authors.replace('Subhrangsu Mandal', '<strong class="text-academic-950 dark:text-academic-100 font-bold underline decoration-accent-gold decoration-2">Subhrangsu Mandal</strong>');
+                const detailSuffix = pub.publisher ? `, ${pub.publisher}` : '';
+                
+                const indicator = pub.type === 'journal' 
+                    ? '<span class="inline-block w-2 h-2 rounded-full bg-accent-teal mr-2" title="Journal Article"></span>'
+                    : '<span class="inline-block w-2 h-2 rounded-full bg-academic-500 mr-2" title="Conference Proceeding"></span>';
+
+                const itemHTML = `
+                    <li class="pl-2 pb-3 text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-900 last:border-0">
+                        <div class="flex items-center">
+                            ${indicator}
+                            <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 font-mono tracking-wider mr-1">[${pub.type.toUpperCase()}]</span>
+                        </div>
+                        <div class="mt-1">
+                            <span>${authorFormatted}.</span> 
+                            <span class="font-semibold text-slate-900 dark:text-white">"${pub.title}."</span> 
+                            <span class="italic text-academic-900 dark:text-academic-300 font-medium">${pub.venue}</span>${detailSuffix}, ${pub.details}.
+                        </div>
+                    </li>
+                `;
+                listContainer.insertAdjacentHTML('beforeend', itemHTML);
+            });
+        }
+
+        window.filterPublications = function(tab) {
+            currentTab = tab;
+            
+            document.querySelectorAll('.pub-tab').forEach(el => {
+                el.className = 'pub-tab border-b-2 border-transparent pb-1 text-slate-500 dark:text-slate-400 hover:text-academic-800 dark:hover:text-white transition';
+            });
+
+            const activeBtn = document.getElementById(`tab-${tab}`);
+            activeBtn.className = 'pub-tab border-b-2 border-slate-800 text-slate-950 dark:border-slate-100 dark:text-white pb-1 font-bold transition';
+            
+            renderPublications();
+        };
+
+        const themeToggleBtn = document.getElementById('themeToggle');
+        
+        function initTheme() {
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        const menuToggleBtn = document.getElementById('menuToggle');
+        const closeMenuBtn = document.getElementById('closeMenu');
+        const sidebar = document.getElementById('sidebar');
+
+        menuToggleBtn.addEventListener('click', () => {
+            sidebar.classList.remove('-translate-x-full');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetHash = link.getAttribute('href');
+                window.location.hash = targetHash;
+                sidebar.classList.add('-translate-x-full');
+            });
+        });
+
+        window.addEventListener('hashchange', () => {
+            const pageId = window.location.hash.substring(1) || 'about';
+            navigateToPage(pageId);
+        });
+
+        document.getElementById('pubSearch').addEventListener('input', renderPublications);
+
+        initTheme();
+        renderPublications();
+
+        const initialPage = window.location.hash.substring(1) || 'about';
+        navigateToPage(initialPage);
+    </script>
+</body>
+</html>
