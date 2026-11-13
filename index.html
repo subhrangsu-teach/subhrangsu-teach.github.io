@@ -190,6 +190,29 @@
 
             <!-- Page 1: Welcome & Research Interests -->
             <section id="about" class="page-view space-y-8 hidden">
+
+                <!-- Recent Award Banner Highlight on Home Page -->
+                <div class="p-5 rounded-lg bg-gradient-to-r from-amber-50 via-amber-50/50 to-white dark:from-amber-950/40 dark:via-slate-900 dark:to-slate-900 border-l-4 border-accent-gold border-y border-r border-amber-200 dark:border-amber-900/50 shadow-sm relative overflow-hidden">
+                    <div class="flex items-start gap-3">
+                        <div class="p-2.5 rounded-full bg-amber-100 dark:bg-amber-900/60 text-accent-gold dark:text-amber-400 shrink-0 mt-0.5">
+                            <i class="fa-solid fa-trophy text-lg"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-bold tracking-widest uppercase text-accent-gold bg-amber-100 dark:bg-amber-950 px-2 py-0.5 rounded border border-amber-300 dark:border-amber-800">
+                                    Recent Achievement (2026)
+                                </span>
+                            </div>
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white serif-academic">
+                                Recipient of the Best Student Paper Award
+                            </h3>
+                            <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                                Awarded at the <strong>28th International Symposium on Stabilization, Safety, and Security of Distributed Systems (SSS 2026)</strong> in Gothenburg, Sweden for the paper <em>"Top k-Fastest Journeys on Temporal Graphs"</em>.
+                            </p>
+                        </div>
+                    </div>
+                </div>				
+				
           <div class="bg-gradient-to-r from-academic-50/50 to-white dark:from-slate-900/30 dark:to-slate-900 border-l-4 border-academic-700 p-6 rounded-r-lg space-y-4 shadow-sm">
               <h2 class="text-xl font-bold text-academic-900 dark:text-academic-200 serif-academic flex items-center gap-2">
                <span class="text-accent-gold text-2xl">“</span>Welcome<span class="text-accent-gold text-2xl">”</span>
@@ -453,6 +476,90 @@
                                 <li>Data Structures Lab</li>
                                 <li>Computer Programming Lab</li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+			<!-- Page: Awards & Honors -->
+            <section id="awards" class="page-view space-y-6 hidden">
+                <div class="border-b-2 border-amber-500/40 dark:border-amber-500/30 pb-2 flex items-center justify-between">
+                    <h2 class="text-lg font-semibold tracking-widest text-slate-900 dark:text-white uppercase serif-academic flex items-center gap-2">
+                        <i class="fa-solid fa-award text-accent-gold text-xl"></i>
+                        <span>Awards &amp; Honors</span>
+                    </h2>
+                    <span class="text-xs font-bold text-accent-gold bg-amber-100 dark:bg-amber-950/60 px-3 py-1 rounded-full border border-amber-300 dark:border-amber-800">
+                        Academic Recognition
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 gap-4">
+                    <!-- Award 1 (Highlighted Recent Award) -->
+                    <div class="p-5 rounded-lg bg-gradient-to-r from-amber-50/80 via-white to-white dark:from-amber-950/20 dark:via-[#1a1a17]/40 dark:to-[#1a1a17]/40 border-l-4 border-accent-gold border-y border-r border-amber-200/80 dark:border-amber-900/40 shadow-sm transition hover:shadow-md">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                            <div class="flex items-start gap-3">
+                                <div class="p-2.5 rounded-full bg-amber-100 dark:bg-amber-900/50 text-accent-gold dark:text-amber-400 shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-trophy text-base"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-900 dark:text-white text-base">Best Student Paper Award</h3>
+                                    <p class="text-xs text-slate-600 dark:text-slate-300 mt-0.5 font-medium">
+                                        28th International Symposium on Stabilization, Safety, and Security of Distributed Systems (SSS)
+                                    </p>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 italic mt-1">
+                                        Paper: "Top k-Fastest Journeys on Temporal Graphs" (Co-authored with Anil Budamakuntla &amp; Sai Anvith Bommisetty)
+                                    </p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-bold text-accent-gold bg-amber-100 dark:bg-amber-950/80 px-3 py-1 rounded border border-amber-300 dark:border-amber-800 whitespace-nowrap self-start md:self-center">
+                                2026
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Award 2 -->
+                    <div class="p-5 rounded-lg bg-gradient-to-r from-amber-50/80 via-white to-white dark:from-amber-950/20 dark:via-[#1a1a17]/40 dark:to-[#1a1a17]/40 border-l-4 border-accent-gold border-y border-r border-amber-200/80 dark:border-amber-900/40 shadow-sm transition hover:shadow-md">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                            <div class="flex items-start gap-3">
+                                <div class="p-2.5 rounded-full bg-amber-100 dark:bg-amber-900/50 text-accent-gold dark:text-amber-400 shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-medal text-base"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-900 dark:text-white text-base">2nd Best Paper Award</h3>
+                                    <p class="text-xs text-slate-600 dark:text-slate-300 mt-0.5 font-medium">
+                                        2nd IEEE International Conference on Parallel, Distributed and Grid Computing (IEEE PDGC)
+                                    </p>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 italic mt-1">
+                                        Paper: "Deterministic 1-2 Skip List in Distributed System"
+                                    </p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-bold text-accent-gold bg-amber-100 dark:bg-amber-950/80 px-3 py-1 rounded border border-amber-300 dark:border-amber-800 whitespace-nowrap self-start md:self-center">
+                                2012
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Award 3 -->
+                    <div class="p-5 rounded-lg bg-gradient-to-r from-amber-50/80 via-white to-white dark:from-amber-950/20 dark:via-[#1a1a17]/40 dark:to-[#1a1a17]/40 border-l-4 border-accent-gold border-y border-r border-amber-200/80 dark:border-amber-900/40 shadow-sm transition hover:shadow-md">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                            <div class="flex items-start gap-3">
+                                <div class="p-2.5 rounded-full bg-amber-100 dark:bg-amber-900/50 text-accent-gold dark:text-amber-400 shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-award text-base"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-900 dark:text-white text-base">Best Paper Award</h3>
+                                    <p class="text-xs text-slate-600 dark:text-slate-300 mt-0.5 font-medium">
+                                        2nd International Conference on Soft Computing for Problem Solving (SocProS)
+                                    </p>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 italic mt-1">
+                                        Paper: "Detecting Metamorphic Virus Using Hidden Markov Model and Genetic Algorithm"
+                                    </p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-bold text-accent-gold bg-amber-100 dark:bg-amber-950/80 px-3 py-1 rounded border border-amber-300 dark:border-amber-800 whitespace-nowrap self-start md:self-center">
+                                2011
+                            </span>
                         </div>
                     </div>
                 </div>
